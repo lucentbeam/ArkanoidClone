@@ -1,8 +1,8 @@
 import pygame
 
 # Import internal modules
-import TestGameEvents
-import TestGameObjects
+import TestPygameEvents
+import TestPygameObjects
 
 # Initialize Pygame - this encapsulates the underlying SDL Init
 pygame.init()
@@ -25,7 +25,7 @@ clock = pygame.time.Clock()
 
 # Initialize the player object based on our TestGameObjects.GameObject class.
 # We've set the constructor to take height, width, and FPS for the animation
-player = TestGameObjects.GameObject(50,50,3.5)
+player = TestPygameObjects.GameObject(50,50,3.5)
 
 # Create a font object to put at the top of the screen
 gameFont = pygame.font.Font("Ober-Tuerkheim.ttf",76)  # downloaded some dumb font from 1001freefonts.com,
@@ -47,7 +47,7 @@ while gameRunning:
   # 1) it takes the player object and calls its subroutines based on keystrokes
   # 2) it checks for window close events and the escape key, return False if
   #    the player wants to quit, and assigning that to gameRunning (to end the loop)
-  gameRunning = TestGameEvents.getEventUpdates(player)
+  gameRunning = TestPygameEvents.getEventUpdates(player)
 
   # Handle updates for game objects. This is where motion, collisions, status, etc. might go.
   # In this case we only have a player object that's receiving updates, though realistically
