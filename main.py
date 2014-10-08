@@ -2,9 +2,11 @@
 import sys
 import pygame
 
+pygame.font.init()
 #internal modules
 
-#import title,core
+#import core
+import title
 
 class Game:
     def __init__(self):
@@ -14,7 +16,7 @@ class Game:
         self.CLOCK = pygame.time.Clock()
         self.state='title'
         self.STATELIST={'title':self.runTitle,'game':self.runGame}#,'death':self.runDeath}
-        self.run()
+
 
     def run(self):
         self.STATELIST[self.state]()
@@ -41,4 +43,6 @@ class Game:
         sys.exit()
 
 pygame.init()
+
+
 game=Game()
